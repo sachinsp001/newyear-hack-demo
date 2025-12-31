@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phone Security Status</title>
+<style>
+body{background:#000;color:#0f0;font-family:monospace;font-size:16px;padding:20px;overflow:hidden;text-align:center;}
+#terminal{text-align:left;white-space:pre-line;margin-top:20px;}
+#hacked{font-size:40px;font-weight:900;color:red;display:none;margin-top:20px;text-shadow:0 0 10px red;}
+#happy{font-size:28px;font-weight:bold;color:#0ff;text-shadow:0 0 10px #0ff;}
+.blink{animation:blink 1s infinite;}
+@keyframes blink{50%{opacity:0;}}
+.fake-bar{width:0;height:6px;background:red;margin:10px auto;transition:1s;}
+</style>
+</head>
+<body>
+
+<div id="happy">🎉 HAPPY NEW YEAR 2026 🎉</div>
+<div id="hacked" class="blink">⚠️ YOUR PHONE IS HACKED ⚠️</div>
+<div class="fake-bar" id="bar"></div>
+
+<div id="terminal"></div>
+
+<script>
+// Fake hacking terminal lines
+const lines = [
+"[+] Your Photo and Video accessed...",
+"[+] Connecting to device...",
+"[!] Unauthorized handshake detected...",
+"[+] Attempting security bypass...",
+"[!] Extracting contacts, files, gallery...",
+"[+] Reading WhatsApp messages...",
+"[!] Weak security detected!",
+"[+] ACCESS GRANTED!",
+"",
+"====================================",
+"⚠️  THIS WAS JUST A SIMULATION ⚠️",
+"====================================",
+"",
+"🎯 Relax. Your phone is NOT hacked.",
+"💡 This page is SAFE & educational.",
+"",
+"🔐 CYBER SAFETY TIPS:",
+"• Don't open random New Year links",
+"• Don’t install unknown APKs",
+"• Check URLs before clicking",
+"• Turn on Play Protect / Antivirus",
+"• Trust only verified sources",
+"",
+"Stay alert, stay protected. 🛡"
+];
+
+// Show scary message first
+setTimeout(()=>{
+    document.getElementById("hacked").style.display="block";
+    document.getElementById("bar").style.width="80%";
+},500);
+
+// Type animation
+let index = 0;
+function typeLine(){
+    if(index < lines.length){
+        document.getElementById("terminal").innerHTML += lines[index] + "\n";
+        index++;
+        setTimeout(typeLine, 300);
+    }
+}
+setTimeout(typeLine, 1000);
+</script>
+</body>
+</html>
